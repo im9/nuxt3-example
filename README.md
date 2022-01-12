@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Example
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+[demo](https://nuxt3-example.netlify.app/).
 
 ## Setup
 
