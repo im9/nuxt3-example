@@ -26,5 +26,21 @@ export const useContactStore = defineStore("contact", {
             (contactMethod: number) => contactMethod !== updateValue
           );
     },
+    async sendForm() {
+      await $fetch('/api/contact', {
+        method: 'POST',
+        body: {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          accountType: this.accountType,
+          company: this.company,
+          phone: this.phone,
+          email: this.email,
+          contactMethods: this.contactMethods,
+          subject: this.subject,
+          message: this.message,
+        },
+      })
+    },
   },
 });

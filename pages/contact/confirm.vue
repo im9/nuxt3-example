@@ -9,10 +9,14 @@ export default {
 <script setup lang="ts">
 const contactStore = useContactStore()
 
-const handleSendBtnClick = (e) => {
-  const router = useRouter()
-  router.push('/contact/thanks').then(() => {
-    window.scroll({ top: 0 });
+const handleSendBtnClick = async (e) => {
+  await contactStore.sendForm().then((res) => {
+    const router = useRouter()
+    router.push('/contact/thanks').then(() => {
+      window.scroll({ top: 0 });
+    })
+  }).catch(() => {
+    alert('error')
   })
 }
 </script>
