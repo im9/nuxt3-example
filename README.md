@@ -26,4 +26,8 @@ Build the application for production:
 yarn build
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+## DB Migrate
+
+```
+npx prisma migrate dev --name init
+```

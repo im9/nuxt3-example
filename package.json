@@ -5,8 +5,12 @@
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
   },
+  "prisma": {
+    "seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.1",
+    "@types/node": "^17.0.10",
     "autoprefixer": "^10.4.2",
     "nuxt3": "latest",
     "postcss": "^8.4.5",
@@ -16,7 +20,6 @@
     "@pinia/nuxt": "^0.1.8",
     "@prisma/client": "^3.8.0",
     "@tailwindcss/forms": "^0.4.0",
-    "express": "^4.17.2",
     "h3": "^0.3.8",
     "pinia": "^2.0.9",
     "prisma": "^3.8.0",
