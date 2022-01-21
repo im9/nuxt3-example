@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'http'
 import { useBody } from 'h3'
 import pkg from '@prisma/client';
+import { Contact } from "@/models/Contact.model";
 
 const { PrismaClient } = pkg;
 const prisma = new PrismaClient()
@@ -18,7 +19,7 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       contactMethods,
       subject,
       message,
-    },
+    } as Contact,
   })
   return result
 }

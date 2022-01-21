@@ -26,8 +26,18 @@ Build the application for production:
 yarn build
 ```
 
+## DB Seed
+
+```
+npx prisma db seed
+```
+
 ## DB Migrate
 
 ```
-npx prisma migrate dev --name init
+# migrate
+npx prisma migrate dev --name migrate_name
+
+# reset
+npx prisma migrate reset
 ```
