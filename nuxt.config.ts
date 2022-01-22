@@ -7,6 +7,10 @@ export default defineNuxtConfig({
       path: "~/components/atoms",
       pathPrefix: false,
     },
+    {
+      path: "~/components/molecules",
+      pathPrefix: false,
+    },
   ],
   buildModules: ["@pinia/nuxt"],
   css: ["@/assets/css/tailwind.css"],
@@ -14,5 +18,8 @@ export default defineNuxtConfig({
     postcss: {
       postcssOptions: require("./postcss.config.js"),
     },
+  },
+  compilerOptions: {
+    jsx: "preserve",
   },
 });

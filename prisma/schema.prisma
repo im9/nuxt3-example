@@ -32,3 +32,25 @@ model Plan {
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now())
 }
+
+model Position {
+  id             Int        @id @default(autoincrement())
+  positionName   String     @unique
+  employee       Employee[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @default(now())
+  deletedAt      DateTime   @default(now())
+}
+
+model Employee {
+  id             Int        @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  positions      Position[]
+  imgUrl         String
+  instagramUrl   String?
+  twitterUrl     String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @default(now())
+  deletedAt      DateTime   @default(now())
+}
