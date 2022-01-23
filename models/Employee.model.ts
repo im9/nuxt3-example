@@ -1,9 +1,7 @@
-// import { Position } from "@/models/Position.model";
-
 export interface Employee {
   firstName: string;
   lastName: string;
-  positions?: any[];
+  position: string;
   imgUrl: string;
   instagramUrl?: string;
   twitterUrl?: string;

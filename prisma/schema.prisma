@@ -8,6 +8,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Contact {
@@ -33,20 +34,11 @@ model Plan {
   updatedAt      DateTime @default(now())
 }
 
-model Position {
-  id             Int        @id @default(autoincrement())
-  positionName   String     @unique
-  employee       Employee[]
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @default(now())
-  deletedAt      DateTime   @default(now())
-}
-
 model Employee {
   id             Int        @id @default(autoincrement())
   firstName      String
   lastName       String
-  positions      Position[]
+  position       String?
   imgUrl         String
   instagramUrl   String?
   twitterUrl     String?

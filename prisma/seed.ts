@@ -1,6 +1,5 @@
 import { Contact } from "@/models/Contact.model";
 import { Plan } from "@/models/Plan.model";
-import { Position } from "@/models/Position.model";
 import { Employee } from "@/models/Employee.model";
 import { PrismaClient } from '@prisma/client';
 
@@ -57,43 +56,12 @@ const masterPlans: Plan[] = [
   }
 ]
 
-// Master Position Data
-const masterPositions: Position[] = [
-  {
-    positionName: "Founder",
-  },
-  {
-    positionName: "CEO",
-  },
-  {
-    positionName: "CFO",
-  },
-  {
-    positionName: "CTO",
-  },
-  {
-    positionName: "Creative Director",
-  },
-  {
-    positionName: "Investor Relations",
-  },
-  {
-    positionName: "Senior Art Director",
-  },
-  {
-    positionName: "Creative Director",
-  },
-  {
-    positionName: "Marketing Analyst",
-  },
-]
-
-// Master Employee Data
-const masterEmployees: Employee[] = [
+// Employee Data
+const defaltEmployees: Employee[] = [
   {
     firstName: "John",
     lastName: "McCulling",
-    // positions: [], // Founder / CEO
+    position: "Founder / CEO",
     imgUrl: "https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -101,7 +69,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Kate",
     lastName: "Berg",
-    // positions: [], // CFO
+    position: "CFO",
     imgUrl: "https://images.unsplash.com/photo-1532073150508-0c1df022bdd1?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -109,7 +77,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Kate",
     lastName: "Berg",
-    // positions: [], // CTO
+    position: "CTO",
     imgUrl: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -117,7 +85,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Robert",
     lastName: "Greyson",
-    // positions: [], // Creative Director
+    position: "Creative Director",
     imgUrl: "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -125,7 +93,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "John",
     lastName: "Roberts",
-    // positions: [], // Investor Relations
+    position: "Investor Relations",
     imgUrl: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -133,7 +101,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Judy",
     lastName: "Amandez",
-    // positions: [], // Senior Art Director
+    position: "Senior Art Director",
     imgUrl: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -141,7 +109,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Rahul",
     lastName: "Williams",
-    // positions: [], // Creative Director
+    position: "Creative Director",
     imgUrl: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -149,7 +117,7 @@ const masterEmployees: Employee[] = [
   {
     firstName: "Ari",
     lastName: "Ferris",
-    // positions: [], // Marketing Analyst
+    position: "Marketing Analyst",
     imgUrl: "https://images.unsplash.com/photo-1562904403-a5106bef8319?auto=format&q=75&fit=crop&w=256",
     instagramUrl: "#",
     twitterUrl: "#",
@@ -173,16 +141,8 @@ const transfer = async ()  => {
   })
   await prisma.$transaction(plans);
 
-  // Master Position
-  const positions = masterPositions.map((data: Position) => {
-    return prisma.position.create({
-      data,
-    });
-  })
-  await prisma.$transaction(positions);
-
   // Master Employees
-  const employees = masterEmployees.map((data: Employee) => {
+  const employees = defaltEmployees.map((data: Employee) => {
     return prisma.employee.create({
       data,
     });

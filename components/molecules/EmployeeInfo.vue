@@ -25,7 +25,7 @@ const name = computed(() => {
     </div>
     <div>
       <div class="text-indigo-500 md:text-lg font-bold text-center">{{ name }}</div>
-      <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">Founder / CEO</p>
+      <p class="text-gray-500 text-sm md:text-base text-center mb-3 md:mb-4">{{ employee.position }}</p>
       <!-- social - start -->
       <div class="flex justify-center">
         <div class="flex gap-4">
